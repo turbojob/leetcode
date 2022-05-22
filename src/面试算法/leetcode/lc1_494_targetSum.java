@@ -8,7 +8,7 @@ https://leetcode.cn/problems/target-sum/
 再给定一个数target
 请问最后算出target的方法数
  */
-public class lc1_496_targetSum {
+public class lc1_494_targetSum {
 
     public static void main(String[] args) {
         int[] arr = {1,1,1,1,1};
