@@ -1,5 +1,7 @@
 package 面试算法.leetcode;
 
+import 面试算法.util.TreeNode;
+
 public class lc5_98_validIsBST {
 
     public boolean isValidBST(TreeNode root) {

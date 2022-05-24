@@ -1,20 +1,10 @@
 package 面试算法.leetcode;
 
 
+import 面试算法.util.TreeNode;
+
 import java.util.LinkedList;
 
-class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      TreeNode() {}
-      TreeNode(int val) { this.val = val; }
-      TreeNode(int val, TreeNode left, TreeNode right) {
-          this.val = val;
-          this.left = left;
-          this.right = right;
-      }
-}
 
 public class lc3_513_findBottomLeftTreeValue {
     public int findBottomLeftValue(TreeNode root) {
