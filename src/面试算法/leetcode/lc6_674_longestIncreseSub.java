@@ -1,6 +1,6 @@
 package 面试算法.leetcode;
 
-public class lc_6_674_longestIncreseSub {
+public class lc6_674_longestIncreseSub {
     public int findLengthOfLCIS(int[] nums) {
         int last = 1;
         int n = nums.length;
