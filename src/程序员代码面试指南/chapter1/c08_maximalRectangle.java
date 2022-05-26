@@ -2,42 +2,26 @@ package 程序员代码面试指南.chapter1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class c08_maximalRectangle {
     //lc 剑指40  cd16
-    public int numSubmat(int[][] matrix) {
-        int ans = 0;
-        int m = matrix.length;
-        if(m == 0) return 0;
-        int n = matrix[0].length;
-        int[] info = new int[n];
-        //先处理 第一行
-        //info[i] 表示 当前行来说， 他的高度是多少
-        for (int i = 0; i < m; i++){
-            int[] line = matrix[i];
-            if(i == 0){
-                for(int j=0;j<n;j++){
-                    info[j] = line[j]-'0';
-                }
-            }else{
-                for(int j=0;j<n;j++){
-                    info[j] = line[j]-'0' == 0 ?0 : info[j] + line[j]-'0';
-                }
-            }
 
-            int[][] right = right(info);
-            for(int a = 0; a < right.length; a++){
-                int[] cur = right[a];
-                if(cur[1] == -1){
-                    cur[1] = n;
-                }
-                ans = Math.max(ans, info[a] * (cur[1] - cur[0] - 1));
+    public static int maximalRectangle(char[][] matrix) {
+        int n = matrix.length;
+        String[] aim = new String[matrix.length];
+        for(int i = 0; i < matrix.length; i++){
+            StringBuilder sb = new StringBuilder();
+            for(int j = 0; j < matrix[0].length; j++){
+                sb.append(matrix[i][j]);
             }
+            aim[i] = sb.toString();
         }
-        return  ans;
+
+        return maximalRectangle(aim);
     }
-    public int maximalRectangle(String[] matrix) {
+    public static int maximalRectangle(String[] matrix) {
         int ans = 0;
         int m = matrix.length;
         if(m == 0) return 0;
@@ -53,7 +37,7 @@ public class c08_maximalRectangle {
                 }
             }else{
                 for(int j=0;j<n;j++){
-                    info[j] = info[j] == 0 ?0 : info[j] + line.charAt(j)-'0';
+                    info[j] = line.charAt(j)-'0' == 0 ?0 : info[j] + line.charAt(j)-'0';
                 }
             }
 
@@ -89,5 +73,16 @@ public class c08_maximalRectangle {
             info[poll][1] = -1;
         }
         return info;
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt(), m = in.nextInt();
+        char[][] arr = new char[n][m];
+        for(int i = 0; i < n ; i++){
+            for(int j = 0; j < m; j++){
+                arr[i][j] =  in.nextInt()==0 ? '0' : '1' ;
+            }
+        }
+        System.out.println(maximalRectangle(arr));
     }
 }
