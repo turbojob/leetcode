@@ -1,6 +1,11 @@
 package 面试算法.leetcode;
 
 public class lc21_198_rob {
+    public static void main(String[] args) {
+        String s = "asgygd.dad.";
+        String[] ans = s.split("\\.");
+        System.out.println(ans.length);
+    }
     public int rob(int[] nums) {
         int n = nums.length;
         return processDP(nums);
